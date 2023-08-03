@@ -21,6 +21,8 @@ html {
 body {
     background-color: var(--primary-color);
     color: var(--secondary-color);
+    text-align: center;
+    padding-top: 2rem;
 }
 
 @media (prefers-reduced-motion: reduced) {
