@@ -11,57 +11,57 @@
     "orientation": "portrait-primary",
     "icons": [
         {
-            "src": "/github-pwa-test/img/icon72.jpeg",
+            "src": "/pwa-test/img/icon72.jpeg",
             "type": "image/jpeg",
             "sizes": "72x72"
         },
         {
-            "src": "/github-pwa-test/img/icon96.jpeg",
+            "src": "/pwa-test/img/icon96.jpeg",
             "type": "image/jpeg",
             "sizes": "96x96"
         },
         {
-            "src": "/github-pwa-test/img/icon120.jpeg",
+            "src": "/pwa-test/img/icon120.jpeg",
             "type": "image/jpeg",
             "sizes": "120x120"
         },
         {
-            "src": "/github-pwa-test/img/icon.png",
+            "src": "/pwa-test/img/icon.png",
             "type": "image/png",
             "sizes": ""
         },
         {
-            "src": "/github-pwa-test/img/icon128.jpeg",
+            "src": "/pwa-test/img/icon128.jpeg",
             "type": "image/jpeg",
             "sizes": "128x128"
         },
         {
-            "src": "/github-pwa-test/img/icon144.jpeg",
+            "src": "/pwa-test/img/icon144.jpeg",
             "type": "image/jpeg",
             "sizes": "144x144"
         },
         {
-            "src": "/github-pwa-test/img/icon152.jpeg",
+            "src": "/pwa-test/img/icon152.jpeg",
             "type": "image/jpeg",
             "sizes": "152x152"
         },
         {
-            "src": "/github-pwa-test/img/icon180.jpeg",
+            "src": "/pwa-test/img/icon180.jpeg",
             "type": "image/jpeg",
             "sizes": "180x180"
         },
         {
-            "src": "/github-pwa-test/img/icon192.jpeg",
+            "src": "/pwa-test/img/icon192.jpeg",
             "type": "image/jpeg",
             "sizes": "192x192"
         },
         {
-            "src": "/github-pwa-test/img/icon384.jpeg",
+            "src": "/pwa-test/img/icon384.jpeg",
             "type": "image/jpeg",
             "sizes": "384x384"
         },
         {
-            "src": "/github-pwa-test/img/icon512.jpeg",
+            "src": "/pwa-test/img/icon512.jpeg",
             "type": "image/jpeg",
             "sizes": "512x512"
         }
