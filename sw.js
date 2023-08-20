@@ -1,6 +1,6 @@
 /* eslint no-restricted-globals: ["off", "self"] */
 
-const APP_PREFIX = 'ghpwat_';
+const APP_PREFIX = 'pwat_';
 const VERSION = 'version_00';
 const CACHE_NAME = APP_PREFIX + VERSION;
 

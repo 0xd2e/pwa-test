@@ -8,8 +8,8 @@ window.addEventListener('DOMContentLoaded', async () => {
       const swRegOptions = {
         scope: '/pwa-test/',
         updateViaCache: 'all',
-      },
-            swRegistration = await navigator.serviceWorker.register('/pwa-test/sw.js', swRegOptions);
+      };
+      const swRegistration = await navigator.serviceWorker.register('/pwa-test/sw.js', swRegOptions);
       console.log(`Service worker registration succeeded: ${swRegistration}`);
     } catch (err) {
       console.error(`Service worker registration failed: ${err}`);
@@ -17,7 +17,6 @@ window.addEventListener('DOMContentLoaded', async () => {
   } else {
     console.error('Service workers are not supported.');
   }
-
 
 }, {
   capture: false,
