@@ -1,10 +1,12 @@
 window.addEventListener('DOMContentLoaded', async () => {
   'use strict';
 
-  const videoElement = document.createElement("video");
-  const canvasElement = document.getElementById("qr-canvas");
-  const canvasContext = canvasElement.getContext("2d");
-  const messageElement = document.getElementById("qr-message");
+  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext
+
+  const videoElement = document.createElement('video');
+  const canvasElement = document.getElementById('qr-canvas');
+  const canvasContext = canvasElement.getContext('2d', { alpha: false, desynchronized: false, willReadFrequently: true });
+  const messageElement = document.getElementById('qr-message');
   let cameraStream = undefined;
 
   try {
@@ -43,7 +45,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       canvasContext.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
       const imageData = canvasContext.getImageData(0, 0, canvasElement.width, canvasElement.height);
       const qrCode = jsQR(imageData.data, imageData.width, imageData.height, {
-        inversionAttempts: "dontInvert",
+        inversionAttempts: 'dontInvert',
       });
       if (qrCode) {
         drawBoundingBox(code.location, '#FF3B58');
