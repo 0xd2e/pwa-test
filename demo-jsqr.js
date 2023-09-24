@@ -9,8 +9,8 @@ window.addEventListener('DOMContentLoaded', async () => {
   const messageElement = document.getElementById('qr-message');
   let cameraStream = undefined;
 
-  // const canvTest = document.getElementById('canv-test');
-  // const ctxTest = canvTest.getContext('2d', { alpha: false, desynchronized: false, willReadFrequently: true });
+  const canvTest = document.getElementById('canv-test');
+  const ctxTest = canvTest.getContext('2d', { alpha: false, desynchronized: false, willReadFrequently: true });
 
   try {
     const cameraOptions = {
@@ -43,15 +43,15 @@ window.addEventListener('DOMContentLoaded', async () => {
   const tick = () => {
     if (videoElement.readyState === videoElement.HAVE_ENOUGH_DATA) {
       canvasElement.hidden = false;
-      // canvTest.hidden = false;
+      canvTest.hidden = false;
       canvasElement.height = videoElement.videoHeight;
       canvasElement.width = videoElement.videoWidth;
-      // canvTest.height = videoElement.videoHeight;
-      // canvTest.width = videoElement.videoWidth;
+      canvTest.height = videoElement.videoHeight;
+      canvTest.width = videoElement.videoWidth;
       canvasContext.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
       // canvasContext.putImageData(filter(canvasContext.getImageData(0, 0, 720, 480)),0,0);
       const frame = canvasContext.getImageData(0, 0, canvasElement.width, canvasElement.height);
-      // ctxTest.putImageData(frame.data, 0, 0, frame.width, frame.height);
+      ctxTest.putImageData(frame.data, 0, 0);
       const qrCode = jsQR(frame.data, frame.width, frame.height, {
         inversionAttempts: 'dontInvert',
       });
