@@ -59,7 +59,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   videoElement.srcObject = cameraStream;
   videoElement.setAttribute('playsinline', true); // Required to tell iOS Safari we don't want fullscreen
-  video.play();
+  videoElement.play();
   requestAnimationFrame(tick);
 
 }, {
