@@ -23,12 +23,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     if (!cameraStream) {
       throw new Error('TODO');
     }
-    canvasContext.lineWidth = 4;
-    canvasContext.strokeStyle = '#FF3B58';
-    canvasContext.fillStyle = '#FF3B58';
-    canvasContext.font = '15px Arial';
-    canvasContext.textBaseline = 'top';
-    canvasContext.textAlign = 'left';
   } catch (err) {
     messageElement.textContent = 'Unable to access video stream (please make sure you have a webcam enabled)';
     console.error(`${err.name}\: ${err.message}`);
@@ -36,6 +30,8 @@ window.addEventListener('DOMContentLoaded', async () => {
   }
 
   const drawBoundingBox = (coordinates) => {
+    canvasContext.lineWidth = 4;
+    canvasContext.strokeStyle = '#FF3B58';
     canvasContext.beginPath();
     canvasContext.moveTo(coordinates.topLeftCorner.x, coordinates.topLeftCorner.y);
     canvasContext.lineTo(coordinates.topRightCorner.x, coordinates.topRightCorner.y);
@@ -47,6 +43,10 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   const drawFpsCounter = () => {
     const fps = 1000 / (performance.now() - timer);
+    canvasContext.fillStyle = '#FF3B58';
+    canvasContext.font = '15px Arial';
+    canvasContext.textBaseline = 'top';
+    canvasContext.textAlign = 'left';
     canvasContext.fillText(`FPS: ${fps.toFixed(1)}`, 3, 3);
     timer = performance.now();
   };
