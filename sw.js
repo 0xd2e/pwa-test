@@ -30,7 +30,7 @@ self.addEventListener('fetch', async (evt) => {
   // Perform global search on all caches in the current origin with Cache First Strategy
   // If cache is available, respond with cached resources
   // If there is no cache, try fetching the resources from the network
-  const cachedResponse = await caches.match(evt.request);
+  const cachedResponse = caches.match(evt.request);
   evt.respondWith(cachedResponse || fetch(evt.request));
 });
 
@@ -40,7 +40,7 @@ self.addEventListener('install', (evt) => {
 
   // Pre-cache all initial resources
   const preCache = async () => {
-    const cache = await caches.open(CACHE_NAME);
+    const cache = caches.open(CACHE_NAME);
     cache.addAll(ASSETS);
   };
 
