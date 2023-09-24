@@ -51,7 +51,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       canvasContext.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
       // canvasContext.putImageData(filter(canvasContext.getImageData(0, 0, 720, 480)),0,0);
       const frame = canvasContext.getImageData(0, 0, canvasElement.width, canvasElement.height);
-      ctxTest.putImageData(frame.data, 0, 0);
+      ctxTest.putImageData(frame, 0, 0, frame.width, frame.height);
       const qrCode = jsQR(frame.data, frame.width, frame.height, {
         inversionAttempts: 'dontInvert',
       });
