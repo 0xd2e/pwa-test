@@ -9,6 +9,9 @@ window.addEventListener('DOMContentLoaded', async () => {
   const messageElement = document.getElementById('qr-message');
   let cameraStream = undefined;
 
+  const canvTest = document.getElementById('canv-test');
+  const ctxTest = canvTest.getContext('2d', { alpha: false, desynchronized: false, willReadFrequently: true });
+
   try {
     const cameraOptions = {
       video: {
@@ -40,19 +43,23 @@ window.addEventListener('DOMContentLoaded', async () => {
   const tick = () => {
     if (videoElement.readyState === videoElement.HAVE_ENOUGH_DATA) {
       canvasElement.hidden = false;
+      canvTest.hidden = false;
       canvasElement.height = videoElement.videoHeight;
       canvasElement.width = videoElement.videoWidth;
       canvasContext.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
-      const imageData = canvasContext.getImageData(0, 0, canvasElement.width, canvasElement.height);
-      const qrCode = jsQR(imageData.data, imageData.width, imageData.height, {
+      // canvasContext.putImageData(filter(canvasContext.getImageData(0, 0, 720, 480)),0,0);
+      const frame = canvasContext.getImageData(0, 0, canvasElement.width, canvasElement.height);
+      canvasContext.putImageData(frame.data, 0, 0, frame.width, frame.height);
+      const qrCode = jsQR(frame.data, frame.width, frame.height, {
         inversionAttempts: 'dontInvert',
       });
       if (qrCode) {
         drawBoundingBox(code.location, '#FF3B58');
-        messageElement.innerText = qrCode.data;
-      } else {
-        messageElement.innerText = 'No QR code';
+        messageElement.innerText = `QR code" ${qrCode.data}`;
+        videoElement.pause();
+        return;
       }
+      messageElement.innerText = 'No QR code';
     } else {
       messageElement.innerText = 'Loading video...';
     }
