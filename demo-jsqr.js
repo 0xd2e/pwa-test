@@ -25,6 +25,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
     canvasContext.lineWidth = 4;
     canvasContext.strokeStyle = '#FF3B58';
+    canvasContext.fillStyle = '#FF3B58';
     canvasContext.font = '15px Arial';
     canvasContext.textBaseline = 'top';
     canvasContext.textAlign = 'left';
