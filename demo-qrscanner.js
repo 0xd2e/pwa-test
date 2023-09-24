@@ -25,7 +25,10 @@ window.addEventListener('DOMContentLoaded', async () => {
   };
 
   const scannerOptions = {
-    // onDecodeError: () => {},
+    onDecodeError: (err) => {
+      messageElement.innerText = 'No QR code';
+      console.error('' + err);
+    },
     preferredCamera: 'environment',
     maxScansPerSecond: 10,
     highlightScanRegion: true,
