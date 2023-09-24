@@ -2,6 +2,8 @@ window.addEventListener('DOMContentLoaded', async () => {
   'use strict';
 
   // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext
+  // https://github.com/cozmo/jsqr
+  // https://www.npmjs.com/package/qr-scanner
 
   const videoElement = document.createElement('video');
   const canvasElement = document.getElementById('qr-canvas');
