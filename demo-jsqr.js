@@ -63,7 +63,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         inversionAttempts: 'dontInvert',
       });
       if (qrCode) {
-        drawBoundingBox(code.location, '#FF3B58');
+        drawBoundingBox(qrCode.location, '#FF3B58');
         messageElement.innerText = `QR code" ${qrCode.data}`;
         videoElement.pause();
         return;
