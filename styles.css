@@ -38,3 +38,21 @@ body {
         transition-delay: 0 !important;
     }
 }
+
+a:link,
+a:visited,
+a:active {
+    color: yellow;
+    font-size: 1.5em;
+    font-weight: 800;
+    transition: color 0.5s ease;
+}
+
+a:hover,
+a:focus {
+    color: greenyellow;
+}
+
+.qr-demo {
+    text-align: start;
+}

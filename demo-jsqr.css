@@ -1,0 +1,11 @@
+#qr-message {
+    width: 100%;
+    text-align: center;
+    padding: 40px;
+    background-color: #aaa;
+    color: #000;
+}
+
+#qr-canvas {
+    width: 100%;
+}

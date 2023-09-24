@@ -4,23 +4,23 @@ const APP_PREFIX = 'pwat_';
 const VERSION = 'version_00';
 const CACHE_NAME = APP_PREFIX + VERSION;
 
-const REPO_NAME = 'github-pwa-test';
+// const REPO_NAME = 'pwa-test';
 const ASSETS = [
-  `/${REPO_NAME}/`,
-  `/${REPO_NAME}/index.html`,
-  `/${REPO_NAME}/styles.css`,
-  `/${REPO_NAME}/main.js`,
-  // `/${REPO_NAME}/ww.js`,
-  `/${REPO_NAME}/img/icon72.jpeg`,
-  `/${REPO_NAME}/img/icon96.jpeg`,
-  `/${REPO_NAME}/img/icon120.jpeg`,
-  `/${REPO_NAME}/img/icon128.jpeg`,
-  `/${REPO_NAME}/img/icon144.jpeg`,
-  `/${REPO_NAME}/img/icon152.jpeg`,
-  `/${REPO_NAME}/img/icon180.jpeg`,
-  `/${REPO_NAME}/img/icon192.jpeg`,
-  `/${REPO_NAME}/img/icon384.jpeg`,
-  `/${REPO_NAME}/img/icon512.jpeg`,
+  '/pwa-test/',
+  '/pwa-test/index.html',
+  '/pwa-test/styles.css',
+  '/pwa-test/main.js',
+  '/pwa-test/ww.js',
+  '/pwa-test/img/icon72.jpeg',
+  '/pwa-test/img/icon96.jpeg',
+  '/pwa-test/img/icon120.jpeg',
+  '/pwa-test/img/icon128.jpeg',
+  '/pwa-test/img/icon144.jpeg',
+  '/pwa-test/img/icon152.jpeg',
+  '/pwa-test/img/icon180.jpeg',
+  '/pwa-test/img/icon192.jpeg',
+  '/pwa-test/img/icon384.jpeg',
+  '/pwa-test/img/icon512.jpeg',
 ];
 
 
@@ -70,3 +70,8 @@ self.addEventListener('activate', (evt) => {
 // https://www.freecodecamp.org/news/build-a-pwa-from-scratch-with-html-css-and-javascript/
 // https://web.dev/learn/pwa/
 // https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/
+
+// https://web.dev/service-worker-lifecycle/
+// https://web.dev/learn/pwa/update/
+// https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/background-syncs
+// https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/best-practices
