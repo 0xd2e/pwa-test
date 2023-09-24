@@ -8,4 +8,5 @@
 
 #qr-canvas {
     width: 100%;
+    border: 3px solid #aaa;
 }
