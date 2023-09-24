@@ -1,3 +1,5 @@
+import QrScanner from './qr-scanner.min.js';
+
 window.addEventListener('DOMContentLoaded', async () => {
   'use strict';
 
