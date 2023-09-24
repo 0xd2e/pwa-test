@@ -40,6 +40,9 @@ window.addEventListener('DOMContentLoaded', async () => {
     canvasContext.stroke();
   };
 
+  console.log(`Canvas width: ${canvasElement.width}, Canvas height: ${canvasElement.height}`);
+  console.log(`Video width: ${videoElement.width}, Video height: ${videoElement.height}`);
+
   const tick = () => {
     if (videoElement.readyState === videoElement.HAVE_ENOUGH_DATA) {
       canvasElement.hidden = false;
@@ -50,9 +53,9 @@ window.addEventListener('DOMContentLoaded', async () => {
       canvTest.width = videoElement.videoWidth;
       canvasContext.filter = 'contrast(200%) saturate(200%)';
       canvasContext.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
-      // canvasContext.putImageData(filter(canvasContext.getImageData(0, 0, 720, 480)),0,0);
       const frame = canvasContext.getImageData(0, 0, canvasElement.width, canvasElement.height);
       ctxTest.putImageData(frame, 0, 0);
+      console.log(`Frame width: ${frame.width}, Frame height: ${frame.height}`);
       const qrCode = jsQR(frame.data, frame.width, frame.height, {
         inversionAttempts: 'dontInvert',
       });
