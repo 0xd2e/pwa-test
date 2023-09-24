@@ -9,7 +9,7 @@
 #qr-canvas {
     width: 100%;
     border: 3px solid #aaa;
-    filter: contrast(200%) saturate(200%) ;
+    /* filter: contrast(200%) saturate(200%); */
 }
 
 #canv-test {

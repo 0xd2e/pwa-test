@@ -48,6 +48,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       canvasElement.width = videoElement.videoWidth;
       canvTest.height = videoElement.videoHeight;
       canvTest.width = videoElement.videoWidth;
+      canvasContext.filter = 'contrast(200%) saturate(200%)';
       canvasContext.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
       // canvasContext.putImageData(filter(canvasContext.getImageData(0, 0, 720, 480)),0,0);
       const frame = canvasContext.getImageData(0, 0, canvasElement.width, canvasElement.height);
