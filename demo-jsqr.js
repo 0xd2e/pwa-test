@@ -27,7 +27,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     canvasContext.strokeStyle = '#FF3B58';
     canvasContext.font = '15px Arial';
     canvasContext.textBaseline = 'top';
-    canvasContext.textAlign = 'right';
+    canvasContext.textAlign = 'left';
   } catch (err) {
     messageElement.textContent = 'Unable to access video stream (please make sure you have a webcam enabled)';
     console.error(`${err.name}\: ${err.message}`);
@@ -46,7 +46,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   const drawFpsCounter = () => {
     const fps = 1000 / (performance.now() - timer);
-    canvasContext.fillText(`FPS: ${fps.toFixed(1)}`, 0, 0);
+    canvasContext.fillText(`FPS: ${fps.toFixed(1)}`, 3, 3);
     timer = performance.now();
   };
 
