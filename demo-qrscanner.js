@@ -29,7 +29,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     preferredCamera: 'environment',
     maxScansPerSecond: 10,
     highlightScanRegion: true,
-    highlightCodeOutline: true,
+    highlightCodeOutline: false,
     returnDetailedScanResult: true,
   };
 
