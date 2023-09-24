@@ -41,7 +41,6 @@ window.addEventListener('DOMContentLoaded', async () => {
   };
 
   console.log(`Canvas width: ${canvasElement.width}, Canvas height: ${canvasElement.height}`);
-  console.log(`Video width: ${videoElement.width}, Video height: ${videoElement.height}`);
 
   const tick = () => {
     if (videoElement.readyState === videoElement.HAVE_ENOUGH_DATA) {
@@ -55,7 +54,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       canvasContext.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
       const frame = canvasContext.getImageData(0, 0, canvasElement.width, canvasElement.height);
       ctxTest.putImageData(frame, 0, 0);
-      console.log(`Frame width: ${frame.width}, Frame height: ${frame.height}`);
+      console.log(`Frame width: ${frame.width}, Frame height: ${frame.height}, Video width: ${videoElement.width}, Video height: ${videoElement.height}`);
       const qrCode = jsQR(frame.data, frame.width, frame.height, {
         inversionAttempts: 'dontInvert',
       });
