@@ -8,6 +8,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   const canvasContext = canvasElement.getContext('2d', { alpha: false, desynchronized: false, willReadFrequently: true });
   const messageElement = document.getElementById('qr-message');
   let cameraStream = undefined;
+  let timer = performance.now();
 
   const canvTest = document.getElementById('canv-test');
   const ctxTest = canvTest.getContext('2d', { alpha: false, desynchronized: false, willReadFrequently: true });
@@ -55,6 +56,9 @@ window.addEventListener('DOMContentLoaded', async () => {
       const frame = canvasContext.getImageData(0, 0, canvasElement.width, canvasElement.height);
       ctxTest.putImageData(frame, 0, 0);
       console.log(`Frame width: ${frame.width}, Frame height: ${frame.height}, Video width: ${videoElement.videoWidth}, Video height: ${videoElement.videoHeight}`);
+      const fps = 1000 / (performance.now() = timer);
+      console.log(`FPS: ${fps}`);
+      timer = performance.now();
       const qrCode = jsQR(frame.data, frame.width, frame.height, {
         inversionAttempts: 'dontInvert',
       });
