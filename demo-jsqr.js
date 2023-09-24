@@ -56,7 +56,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       const frame = canvasContext.getImageData(0, 0, canvasElement.width, canvasElement.height);
       ctxTest.putImageData(frame, 0, 0);
       console.log(`Frame width: ${frame.width}, Frame height: ${frame.height}, Video width: ${videoElement.videoWidth}, Video height: ${videoElement.videoHeight}`);
-      const fps = 1000 / (performance.now() = timer);
+      const fps = 1000 / (performance.now() - timer);
       console.log(`FPS: ${fps}`);
       timer = performance.now();
       const qrCode = jsQR(frame.data, frame.width, frame.height, {
