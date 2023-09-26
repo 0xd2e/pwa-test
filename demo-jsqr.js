@@ -6,6 +6,8 @@ window.addEventListener('DOMContentLoaded', async () => {
   // https://www.npmjs.com/package/qr-scanner
 
   const videoElement = document.createElement('video');
+  videoElement.disablePictureInPicture = true;
+  videoElement.muted = true;
   const canvasElement = document.getElementById('qr-canvas');
   const canvasContext = canvasElement.getContext('2d', { alpha: false, desynchronized: false, willReadFrequently: true });
   const messageElement = document.getElementById('qr-message');
@@ -13,18 +15,26 @@ window.addEventListener('DOMContentLoaded', async () => {
   let timer = performance.now();
 
   const canvTest = document.getElementById('canv-test');
-  const ctxTest = canvTest.getContext('2d', { alpha: false, desynchronized: false, willReadFrequently: true });
+  const ctxTest = canvTest.getContext('2d', { alpha: false, desynchronized: false, willReadFrequently: false });
 
   try {
+    // navigator.mediaDevices.getSupportedConstraints()
     const cameraOptions = {
       video: {
-        facingMode: 'environment',
+        facingMode: { exact: 'environment' },
+        frameRate: { max: 10 },
+        width: { ideal: 640 },
+        height: { ideal: 480 },
       },
+      audio: false,
     };
     cameraStream = await navigator.mediaDevices.getUserMedia(cameraOptions);
     if (!cameraStream) {
       throw new Error('TODO');
     }
+    const vtrack = cameraStream.getVideoTracks()[0];
+    console.log(vtrack.getCapabilities());
+    console.log(`Canvas width: ${canvasElement.width}, Canvas height: ${canvasElement.height}`);
   } catch (err) {
     messageElement.textContent = 'Unable to access video stream (please make sure you have a webcam enabled)';
     console.error(`${err.name}\: ${err.message}`);
@@ -53,8 +63,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     timer = performance.now();
   };
 
-  console.log(`Canvas width: ${canvasElement.width}, Canvas height: ${canvasElement.height}`);
-
   const tick = () => {
     if (videoElement.readyState === videoElement.HAVE_ENOUGH_DATA) {
       canvasElement.hidden = false;
@@ -63,8 +71,10 @@ window.addEventListener('DOMContentLoaded', async () => {
       canvasElement.width = videoElement.videoWidth;
       canvTest.height = videoElement.videoHeight;
       canvTest.width = videoElement.videoWidth;
-      canvasContext.filter = 'contrast(200%) saturate(200%)';
       canvasContext.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
+      // https://developer.mozilla.org/en-US/docs/Web/CSS/filter
+      canvasContext.filter = 'brightness(120%) contrast(140%)';
+      canvasContext.scale(-1, 1);
       const frame = canvasContext.getImageData(0, 0, canvasElement.width, canvasElement.height);
       ctxTest.putImageData(frame, 0, 0);
       console.log(`Frame width: ${frame.width}, Frame height: ${frame.height}, Video width: ${videoElement.videoWidth}, Video height: ${videoElement.videoHeight}`);
@@ -86,7 +96,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   }
 
   videoElement.srcObject = cameraStream;
-  videoElement.setAttribute('playsinline', true); // Required to tell iOS Safari we don't want fullscreen
+  videoElement.setAttribute('playsinline', true); // Required to tell iOS Safari not to use fullscreen
   videoElement.play();
   requestAnimationFrame(tick);
 

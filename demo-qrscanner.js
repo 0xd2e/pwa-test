@@ -3,6 +3,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   'use strict';
 
   // https://www.npmjs.com/package/qr-scanner
+  // https://nimiq.github.io/qr-scanner/demo/
 
   const videoElement = document.getElementById('qr-video');
   // const canvasElement = document.getElementById('qr-canvas');
@@ -15,13 +16,10 @@ window.addEventListener('DOMContentLoaded', async () => {
   }
 
   const handleScan = (result) => {
-    if (result.data) {
-      messageElement.innerText = `QR code" ${result.data}`;
-      qrScanner.stop();
-      qrScanner.destroy();
-    } else {
-      messageElement.innerText = 'No QR code';
-    }
+    if (!result?.data) return;
+    messageElement.innerText = `QR code" ${result.data}`;
+    qrScanner.stop();
+    qrScanner.destroy();
   };
 
   const scannerOptions = {
@@ -31,12 +29,15 @@ window.addEventListener('DOMContentLoaded', async () => {
     },
     preferredCamera: 'environment',
     maxScansPerSecond: 10,
-    highlightScanRegion: true,
+    highlightScanRegion: false,
     highlightCodeOutline: false,
     returnDetailedScanResult: true,
   };
 
   const qrScanner = new QrScanner(videoElement, handleScan, scannerOptions);
+  qrScanner.$video.style.display = 'none';
+  qrScanner.$overlay?.style.display = 'none';
+  document.getElementById('qr-scan-region').appendChild(qrScanner.$canvas);
   await qrScanner.start();
 
 }, {
