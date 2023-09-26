@@ -21,10 +21,10 @@ window.addEventListener('DOMContentLoaded', async () => {
     // navigator.mediaDevices.getSupportedConstraints()
     const cameraOptions = {
       video: {
-        facingMode: { exact: 'environment' },
+        facingMode: 'environment',
         frameRate: { max: 10 },
-        // width: { ideal: 640 },
-        // height: { ideal: 480 },
+        width: { ideal: 640 },
+        height: { ideal: 480 },
       },
       audio: false,
     };
