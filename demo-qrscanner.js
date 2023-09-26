@@ -36,7 +36,8 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   const qrScanner = new QrScanner(videoElement, handleScan, scannerOptions);
   qrScanner.$video.style.display = 'none';
-  qrScanner?.$overlay?.style.display = 'none';
+  if (qrScanner?.$overlay)
+    qrScanner.$overlay.style.display = 'none';
   document.getElementById('qr-scan-region').appendChild(qrScanner.$canvas);
   await qrScanner.start();
 
