@@ -23,8 +23,8 @@ window.addEventListener('DOMContentLoaded', async () => {
       video: {
         facingMode: { exact: 'environment' },
         frameRate: { max: 10 },
-        width: { ideal: 640 },
-        height: { ideal: 480 },
+        // width: { ideal: 640 },
+        // height: { ideal: 480 },
       },
       audio: false,
     };
